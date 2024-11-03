@@ -146,10 +146,10 @@ foreign lib {
 	GetAudioDeviceSpec :: proc(index: c.int, iscapture: bool, spec: ^AudioSpec) -> c.int ---
 
 	OpenAudioDevice :: proc(device: cstring,
-	                        iscapture: bool,
-	                        desired: ^AudioSpec,
+	                        iscapture: b32,
+				#by_ptr desired: AudioSpec,
 	                        obtained: ^AudioSpec,
-	                        allowed_changes: bool) -> AudioDeviceID ---
+	                        allowed_changes: c.int) -> AudioDeviceID ---
 }
 
 
